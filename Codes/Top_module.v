@@ -53,7 +53,7 @@ module Top_Module(
     Branch_Control BC(
         .immune(Imm_out),       // 连接 Imm_gen 的输出 Imm_out 到 immune
         .pc1(pc),               // 将 Program_Counter 的 pc 传给 pc1
-        .zero(Zero),            // 假设 Zero 信号来自 ALU 或其他逻辑
+        .zero(),            // 假设 Zero 信号来自 ALU 或其他逻辑
         .branch(Branch),        // 将 Main_Control_Unit 的 Branch 信号传递到 branch
         .pc2(pc2)               // 将 pc2 连接到 Program_Counter 的 pc2 输入
     );
