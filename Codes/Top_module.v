@@ -1,3 +1,23 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: BU
+// Engineer: Siyuan Jing and Haonan Wu
+// 
+// Create Date: 10/29/2024 02:56:50 PM
+// Design Name: 
+// Module Name: Top_Module
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 module Top_Module(
     input clk,
     input reset
@@ -51,11 +71,11 @@ module Top_Module(
     );
     
     Branch_Control BC(
-        .immgen(Imm_out),       // 连接 Imm_gen 的输出 Imm_out 到 immune
-        .pc1(pc),               // 将 Program_Counter 的 pc 传给 pc1
-        .zero(Zero),            // 假设 Zero 信号来自 ALU 或其他逻辑
-        .branch(Branch),        // 将 Main_Control_Unit 的 Branch 信号传递到 branch
-        .pc2(pc2)               // 将 pc2 连接到 Program_Counter 的 pc2 输入
+        .immgen(Imm_out),       
+        .pc1(pc),               
+        .zero(Zero),            
+        .branch(Branch),        
+        .pc2(pc2)               
     );
     
     ALU alu(
@@ -81,13 +101,7 @@ module Top_Module(
         .S(MemtoReg),          
 	.Z(MuxOut2)            
     );
- //    module Data_Memory(
-	// input [31:0] ALU_Result,       
-	// input [31:0] WriteMemData,     
-	// input MemWrite,                
-	// input MemRead,                 
-	// input clk,                     
-	// output reg [31:0] ReadMemData  
+
 );
         
 endmodule
