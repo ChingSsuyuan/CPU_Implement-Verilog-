@@ -31,15 +31,15 @@ module Top_Module(
     
     Imm_gen IG(
         .Instruction32(ReadData1),
-        .Imm_out()
+        .Imm_out(Imm_out)
     );
     
     Register_File RF(
         .Instruction32(ReadData1),  // 将 ReadData1 连接到 Instruction32
         .WriteData(),
         .WriteEnable(Regwrite),  // 将 Main_Control_Unit 的 Regwrite 连接到 WriteEnable
-        .ReadData1(),
-        .ReadData2(),
+        .ReadData1(ReadData1),
+        .ReadData2(ReadData2),
         .clk(clk),
         .rst(reset)
     );
