@@ -91,8 +91,8 @@ module Top_Module(
 	.WriteMemData(ReadData2),
 	.MemWrite(Memwrite),
 	.MemRead(Memread) ,
-	,clk(clk),
-	,ReadMemData(ReadMemData)
+	.clk(clk),
+	.ReadMemData(ReadMemData)
     );
 
      Mux mux_2(
