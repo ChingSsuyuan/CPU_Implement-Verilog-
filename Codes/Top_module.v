@@ -2,8 +2,9 @@ module Top_Module(
     input clk,
     input reset
 );
-    wire [31:0] pc, pc2, ReadData1, ReadInstruction;
-    // 实例化 Program_Counter
+    wire [31:0] pc, pc2, ReadData1, ReadData2, ReadInstruction, Imm_out, WriteData, MuxOut;
+    wire WriteEnable, Alusrc;
+
     Program_Counter PC(
         .clk(clk),
         .pc2(pc2), 
