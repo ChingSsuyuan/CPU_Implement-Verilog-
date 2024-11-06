@@ -5,5 +5,5 @@ module Mux(
     input S,
     output Z
     );
-    
+    assign Z = S ? B : A;
 endmodule
