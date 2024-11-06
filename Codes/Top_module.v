@@ -3,7 +3,7 @@ module Top_Module(
     input reset
 );
     wire [31:0] pc, pc2, ReadData1, ReadData2, ReadInstruction, Imm_out, WriteData, MuxOut;
-    wire WriteEnable, Alusrc;
+    wire WriteEnable, Alusrc, Branch, Zero;
 
     Program_Counter PC(
         .clk(clk),
