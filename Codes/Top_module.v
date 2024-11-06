@@ -32,7 +32,7 @@ module Top_Module(
     
     Imm_gen IG(
         .Instruction32(ReadData1),
-        .Imm_out(Imm_out)
+        .Imm_out()
     );
     
 endmodule
