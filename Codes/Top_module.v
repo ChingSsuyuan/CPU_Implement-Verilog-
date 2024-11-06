@@ -93,7 +93,7 @@ module Top_Module(
 	.MemRead(Memread) ,
 	,clk(clk),
 	,ReadMemData(ReadMemData)
-	);
+    );
 
      Mux mux_2(
         .A(ALU_Result),        
@@ -101,7 +101,5 @@ module Top_Module(
         .S(MemtoReg),          
 	.Z(MuxOut2)            
     );
-
-);
         
 endmodule
