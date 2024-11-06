@@ -2,7 +2,7 @@ module Top_Module(
     input clk,
     input reset
 );
-    wire [31:0] pc, pc2, ReadData1, ReadData2, ReadInstruction, Imm_out, WriteData, MuxOut;
+    wire [31:0] pc, pc2, Instruction_out, ReadData1, ReadData2, ReadInstruction, Imm_out, WriteData, MuxOut;
     wire WriteEnable, Alusrc, Branch, Zero;
 
     Program_Counter PC(
@@ -14,12 +14,12 @@ module Top_Module(
     
     Instruction_Memory IM(
         .Address(pc),
-        .ReadData1(ReadData1)
+        .ReadData1(Instruction_out)
     );
 
    
     Main_Control_Unit MCU(
-        .ReadInstruction(ReadData1),
+        .ReadInstruction(Instruction_out),
         .Alucontrol(), 
         .Alusrc(),
         .MemtoReg(),
@@ -30,12 +30,12 @@ module Top_Module(
     );
     
     Imm_gen IG(
-        .Instruction32(ReadData1),
+        .Instruction32(Instruction_out),
         .Imm_out(Imm_out)
     );
     
     Register_File RF(
-        .Instruction32(ReadData1),
+        .Instruction32(Instruction_out),
         .WriteData(),
         .WriteEnable(WriteEnable),  
         .ReadData1(ReadData1),
