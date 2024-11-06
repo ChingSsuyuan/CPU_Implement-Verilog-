@@ -43,6 +43,11 @@ module Top_Module(
         .clk(clk),
         .rst(reset)
     );
-
+    Mux mux_1(
+        .A(ReadData2),        // A 输入连接到 ReadData2
+        .B(Imm_out),          // B 输入连接到 Imm_out
+        .S(Alusrc),           // 选择信号 S 连接到 Alusrc
+        .Z(MuxOut)            // Mux 的输出
+    );
     
 endmodule
