@@ -30,4 +30,9 @@ module Top_Module(
 
     Register_File(ReadSelect1, ReadSelect2, WriteSelect, WriteData, WriteEnable, ReadData1, ReadData2, clk, rst);
     
+    Imm_gen IG(
+        .Instruction32(ReadData1),
+        .Imm_out(Imm_out)
+    );
+    
 endmodule
