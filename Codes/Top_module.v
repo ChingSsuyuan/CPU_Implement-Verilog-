@@ -51,3 +51,10 @@ module Top_Module(
     );
     
 endmodule
+module Branch_Control(
+    input [31:0] immgen,
+    input [31:0] pc1,
+    input zero,
+    input branch,
+    output reg [31:0] pc2
+    );
