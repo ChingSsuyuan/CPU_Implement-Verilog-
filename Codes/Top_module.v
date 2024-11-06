@@ -23,7 +23,7 @@ module Top_Module(
     input reset
 );
     wire [31:0] pc, pc2, Instruction_out, ReadData1, ReadData2, Imm_out, MuxOut1,MuxOut2, ALU_Result, ReadMemData;
-    wire Regwrite, Alusrc, Branch, Zero, Memread, Memwrite;
+    wire Regwrite, Alusrc, Branch, Zero, Memread, Memwrite, MemtoReg
     wire [3:0] Alucontrol;
     Program_Counter PC(
         .clk(clk),
