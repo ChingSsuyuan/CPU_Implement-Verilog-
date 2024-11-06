@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
-// Engineer: Siyuan Jing & Haonan Wu
+// Engineer: Siyuan Jing
 // 
-// Create Date: 11/04/2024 05:51:45 PM
+// Create Date: 11/04/2024 02:58:47 PM
 // Design Name: 
-// Module Name: Decode
+// Module Name: Main_Control_Unit
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -16,7 +16,6 @@
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
-// 
 //////////////////////////////////////////////////////////////////////////////////
 module Main_Control_Unit(
     input [31:0] ReadInstruction,
