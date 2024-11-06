@@ -31,3 +31,15 @@ module Imm_gen(
         Imm_out = {{20{imm12}}, imm12, imm11, imm10_5, imm4_1, 1'b0};
     end
 endmodule
+
+module ImmGen(
+    input [31:0] instruction,
+    output reg [31:0] imm_out
+);
+
+always @(*) begin
+    
+    imm_out = {{19{instruction[31]}}, instruction[31], instruction[7], instruction[30:25], instruction[11:8], 1'b0};
+end
+
+endmodule
