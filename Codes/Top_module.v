@@ -58,4 +58,12 @@ module Top_Module(
         .pc2(pc2)               // 将 pc2 连接到 Program_Counter 的 pc2 输入
     );
 
+    module ALU (
+    input [31:0] A,           
+    input [31:0] B,        
+    input [3:0] ALU_Control,  
+    output reg [31:0] ALU_Result,
+    output reg zero           
+);
+        
 endmodule
