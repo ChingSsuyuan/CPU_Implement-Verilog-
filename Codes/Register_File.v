@@ -1,12 +1,16 @@
-module Register_File(ReadSelect1, ReadSelect2, WriteSelect, WriteData, WriteEnable, ReadData1, ReadData2, clk, rst);
+module Register_File(Instruction32, WriteData, WriteEnable, ReadData1, ReadData2, clk, rst);
     parameter BITSIZE = 32;
     parameter REGSIZE = 32;
-    input [$clog2(REGSIZE)-1:0] ReadSelect1, ReadSelect2, WriteSelect;
+    input [31:0]Instruction32;
+    wire [$clog2(REGSIZE)-1:0] ReadSelect1, ReadSelect2, WriteSelect;
     input [BITSIZE-1:0] WriteData;
     input WriteEnable;
     output reg [BITSIZE-1:0] ReadData1, ReadData2;
     input clk, rst;
-
+    assign  ReadSelect1=Instruction32[19:15];
+    assign  ReadSelect2=Instruction32[24:20];
+    assign  WriteSelect=Instruction32[11:7];
+    
     reg [BITSIZE-1:0] reg_file [REGSIZE-1:0];   // Entire list of registers
     
     initial
