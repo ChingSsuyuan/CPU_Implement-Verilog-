@@ -21,8 +21,8 @@ module Top_Module(
     Main_Control_Unit MCU(
         .ReadInstruction(Instruction_out),
         .Alucontrol(Alucontrol), 
-        .Alusrc(),
-        .MemtoReg(),
+        .Alusrc(Alusrc),
+        .MemtoReg(MemtoReg),
         .Regwrite(WriteEnable),
         .Memread(),
         .Memwrite(),
