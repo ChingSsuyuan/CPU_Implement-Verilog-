@@ -26,7 +26,7 @@ module Top_Module(
         .Regwrite(WriteEnable),
         .Memread(),
         .Memwrite(),
-        .Branch()
+        .Branch(Branch)
     );
     
     Imm_gen IG(
