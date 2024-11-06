@@ -37,7 +37,7 @@ module Top_Module(
     Register_File RF(
         .Instruction32(ReadData1),
         .WriteData(),
-        .WriteEnable(Regwrite),  
+        .WriteEnable(WriteEnable),  
         .ReadData1(ReadData1),
         .ReadData2(ReadData2),
         .clk(clk),
