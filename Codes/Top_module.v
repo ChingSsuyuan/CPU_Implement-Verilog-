@@ -4,7 +4,7 @@ module Top_Module(
 );
     wire [31:0] pc, pc2, Instruction_out, ReadData1, ReadData2, Imm_out, WriteData, MuxOut1;
     wire WriteEnable, Alusrc, Branch, Zero;
-
+    wire [3:0] Alucontrol;
     Program_Counter PC(
         .clk(clk),
         .pc2(pc2), 
@@ -20,7 +20,7 @@ module Top_Module(
    
     Main_Control_Unit MCU(
         .ReadInstruction(Instruction_out),
-        .Alucontrol(), 
+        .Alucontrol(Alucontrol), 
         .Alusrc(),
         .MemtoReg(),
         .Regwrite(WriteEnable),
