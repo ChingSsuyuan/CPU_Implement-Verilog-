@@ -28,7 +28,7 @@ module Imm_gen(
     wire imm4_1 = Instruction32[11:8];       
     wire imm11 = Instruction32[7]; 
     always @(*) begin  
-        Imm_out = {{20{imm12}}, imm12, imm11, imm10_5, imm4_1, 1'b0};
+        Imm_out = {{19{imm12}}, imm12, imm11, imm10_5, imm4_1, 1'b0};
     end
 endmodule
 
