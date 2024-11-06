@@ -63,16 +63,25 @@ module Top_Module(
         .B(MuxOut1),
         .ALU_Control(Alucontrol),
         .ALU_Result(ALU_Result),
-        .zero(Zero)
+	.zero(Zero)
     );
-
-    module Data_Memory(
-	input [31:0] ALU_Result,       
-	input [31:0] WriteMemData,     
-	input MemWrite,                
-	input MemRead,                 
-	input clk,                     
-	output reg [31:0] ReadMemData  
+	
+    Data_Memory DM(
+	.ALU_Result(ALU_Result),
+	.WriteMemData(),
+	.MemWrite(),
+	.MemRead() ,
+	,clk(clk),
+	,ReadMemData(ReadMemData)
+	);
+	
+ //    module Data_Memory(
+	// input [31:0] ALU_Result,       
+	// input [31:0] WriteMemData,     
+	// input MemWrite,                
+	// input MemRead,                 
+	// input clk,                     
+	// output reg [31:0] ReadMemData  
 );
         
 endmodule
