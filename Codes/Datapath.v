@@ -18,3 +18,17 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
+module Main_Control_Unit(
+    input [31:0] ReadInstruction,
+    output reg [3:0]Alucontrol,
+    output reg Alusrc,
+    output reg MemtoReg,
+    output reg Regwrite,
+    output reg Memread,
+    output reg Memwrite,
+    output reg Branch
+    );
+    
+    wire [2:0]funct3;
+    wire Instr30;
+    wire [6:0]opcode;
