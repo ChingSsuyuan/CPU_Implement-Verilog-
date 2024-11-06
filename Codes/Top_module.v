@@ -53,17 +53,18 @@ module Top_Module(
     Branch_Control BC(
         .immgen(Imm_out),       // 连接 Imm_gen 的输出 Imm_out 到 immune
         .pc1(pc),               // 将 Program_Counter 的 pc 传给 pc1
-        .zero(),            // 假设 Zero 信号来自 ALU 或其他逻辑
+        .zero(Zero),            // 假设 Zero 信号来自 ALU 或其他逻辑
         .branch(Branch),        // 将 Main_Control_Unit 的 Branch 信号传递到 branch
         .pc2(pc2)               // 将 pc2 连接到 Program_Counter 的 pc2 输入
     );
+    
+    ALU alu(
+        .A(),
+        .B(),
+        .ALU_Control(),
+        .ALU_Result(),
+        .zero(Zero)
+    );
 
-    module ALU (
-    input [31:0] A,           
-    input [31:0] B,        
-    input [3:0] ALU_Control,  
-    output reg [31:0] ALU_Result,
-    output reg zero           
-);
         
 endmodule
