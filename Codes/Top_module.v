@@ -3,7 +3,7 @@ module Top_Module(
     input reset
 );
     wire [31:0] pc, pc2, Instruction_out, ReadData1, ReadData2, Imm_out, WriteData, MuxOut1;
-    wire WriteEnable, Alusrc, Branch, Zero;
+    wire Regwrite, Alusrc, Branch, Zero;
     wire [3:0] Alucontrol;
     Program_Counter PC(
         .clk(clk),
@@ -23,9 +23,9 @@ module Top_Module(
         .Alucontrol(Alucontrol), 
         .Alusrc(Alusrc),
         .MemtoReg(MemtoReg),
-        .Regwrite(WriteEnable),
-        .Memread(),
-        .Memwrite(),
+        .Regwrite(Regwrite),
+        .Memread(Memread),
+        .Memwrite(Memwrite),
         .Branch(Branch)
     );
     
@@ -37,7 +37,7 @@ module Top_Module(
     Register_File RF(
         .Instruction32(Instruction_out),
         .WriteData(),
-        .WriteEnable(WriteEnable),  
+        .WriteEnable(Regwrite),  
         .ReadData1(ReadData1),
         .ReadData2(ReadData2),
         .clk(clk),
