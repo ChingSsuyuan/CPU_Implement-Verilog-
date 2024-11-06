@@ -1,1 +1,29 @@
+module Top_Module(
+    input clk
+);
+    wire [31:0] pc, pc2, ReadData1, ReadInstruction;
+    // 实例化 Program_Counter
+    Program_Counter PC(
+        .clk(clk),
+        .pc2(pc2), 
+        .pc(pc)
+    );
 
+    // 实例化 Instruction_Memory
+    Instruction_Memory IM(
+        .Address(pc),
+        .ReadData1(ReadData1)
+    );
+
+    // 实例化 Main_Control_Unit
+    Main_Control_Unit MCU(
+        .ReadInstruction(ReadData1),
+        .Alucontrol(), 
+        .Alusrc(),
+        .MemtoReg(),
+        .Regwrite(),
+        .Memread(),
+        .Memwrite(),
+        .Branch()
+    );
+endmodule
