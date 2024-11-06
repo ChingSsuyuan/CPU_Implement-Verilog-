@@ -32,3 +32,7 @@ module Main_Control_Unit(
     wire [2:0]funct3;
     wire Instr30;
     wire [6:0]opcode;
+
+    assign opcode = ReadInstruction[6:0];       
+    assign funct3 = ReadInstruction[14:12];     
+    assign Instr30 = ReadInstruction[30];
