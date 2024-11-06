@@ -1,5 +1,5 @@
 module Top_Module(
-    input clk
+    input clk,
     input reset
 );
     wire [31:0] pc, pc2, ReadData1, ReadInstruction;
