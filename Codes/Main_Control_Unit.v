@@ -36,3 +36,12 @@ module Main_Control_Unit(
     assign opcode = ReadInstruction[6:0];       
     assign funct3 = ReadInstruction[14:12];     
     assign Instr30 = ReadInstruction[30];
+    initial begin
+        Alucontrol=4'b0000;
+        Alusrc=  0;
+        MemtoReg=0;
+        Regwrite=0;
+        Memread= 0;
+        Memwrite=0;
+        Branch= 0;
+    end
