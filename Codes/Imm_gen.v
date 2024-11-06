@@ -32,14 +32,3 @@ module Imm_gen(
     end
 endmodule
 
-module ImmGen(
-    input [31:0] instruction,
-    output reg [31:0] imm_out
-);
-
-always @(*) begin
-    
-    imm_out = {{19{instruction[31]}}, instruction[31], instruction[7], instruction[30:25], instruction[11:8], 1'b0};
-end
-
-endmodule
