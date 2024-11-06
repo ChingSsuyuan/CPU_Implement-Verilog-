@@ -2,7 +2,7 @@ module Top_Module(
     input clk,
     input reset
 );
-    wire [31:0] pc, pc2, Instruction_out, ReadData1, ReadData2, Imm_out, MuxOut1, ALU_Result;
+    wire [31:0] pc, pc2, Instruction_out, ReadData1, ReadData2, Imm_out, MuxOut1, ALU_Result, ReadMemData;
     wire Regwrite, Alusrc, Branch, Zero, Memread, Memwrite;
     wire [3:0] Alucontrol;
     Program_Counter PC(
@@ -68,9 +68,9 @@ module Top_Module(
 	
     Data_Memory DM(
 	.ALU_Result(ALU_Result),
-	.WriteMemData(),
-	.MemWrite(),
-	.MemRead() ,
+	.WriteMemData(ALU_Result),
+	.MemWrite(Memwrite),
+	.MemRead(Memread) ,
 	,clk(clk),
 	,ReadMemData(ReadMemData)
 	);
