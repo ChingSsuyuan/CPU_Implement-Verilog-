@@ -66,5 +66,13 @@ module Top_Module(
         .zero(Zero)
     );
 
+    module Data_Memory(
+	input [31:0] ALU_Result,       
+	input [31:0] WriteMemData,     
+	input MemWrite,                
+	input MemRead,                 
+	input clk,                     
+	output reg [31:0] ReadMemData  
+);
         
 endmodule
