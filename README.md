@@ -13,3 +13,7 @@
 - ### Program Counter:
 - ### Instruction Memory:
 - ### Immediate Gen:
+- ### Main Control Unit:
+- ### Data Memory:
+- ### Branch Control:
+- ### Register File:
