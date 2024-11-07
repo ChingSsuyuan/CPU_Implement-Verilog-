@@ -32,44 +32,33 @@ module Imm_gen(
     end
 endmodule
 
-module Imm_gen(
-    input [31:0] Instruction32,
-    output reg [31:0] Imm_out
-);
-    wire [6:0]opcode;
-    wire imm12 = Instruction32[31];         
-    wire [5:0] imm10_5 = Instruction32[30:25];   
-    wire [3:0] imm4_1 = Instruction32[11:8];       
-    wire imm11 = Instruction32[7]; 
-    wire [11:0] immI = Instruction32[11:0];
-    wire [6:0] imm11_5=Instruction32[31:25]; 
-    wire [4:0]imm4_0=Instruction32[11:7]; 
-    
-    always @(*) begin  
-        if (opcode==7'b1101011) begin
-        Imm_out = {{19{imm12}}, imm12, imm11, imm10_5, imm4_1, 1'b0};
-        end
-        
-        if (opcode==7'b1000011) begin
-            Imm_out={20'b0,immI};
-        end
-        
-        if (opcode==7'b0110000) begin
-            Imm_out={20'b0,immI};
-        end
-        
-        if (opcode==7'b0011111) begin
-            Imm_out={20'b0,immI};
-        end
-        
-        if (opcode==7'b1100011) begin
-            Imm_out = {20'b0,imm11_5.imm4_0};
-        end
-        
-        else begin
-            Imm_out=Instruction32;
-        end
+always @(*) begin
+        case (opcode)
+            7'b1101011: begin
+                // Example: concatenate for specific instruction type
+                Imm_out = {{19{imm12}}, imm12, imm11, imm10_5, imm4_1, 1'b0};  // 32-bit result
+            end
+            
+            7'b1000011: begin
+                Imm_out = {20'b0, immI};  // 32-bit result (sign-extend)
+            end
+            
+            7'b0110000: begin
+                Imm_out = {20'b0, immI};  // 32-bit result (sign-extend)
+            end
+            
+            7'b0011111: begin
+                Imm_out = {20'b0, immI};  // 32-bit result (sign-extend)
+            end
+            
+            7'b1100011: begin
+                // Branch-type instruction with 20-bit immediate
+                Imm_out = {imm11_5, imm4_0};  // Combining imm11_5 (7 bits) and imm4_0 (5 bits) to form 32-bit immediate
+            end
+            
+            default: begin
+                Imm_out = 32'b0;  // Default case (initialize with zeros)
+            end
+        endcase
     end
-    
-endmodule
 
