@@ -11,8 +11,11 @@
 - ### ALU: 
 ![p4](https://github.com/ChingSsuyuan/CPU_Implement_Verilog/blob/bc1fbd9cbc426db116dc6ba92ff4baf3de0b7096/Design%20Schematics/ALU.png)
 - ### Program Counter:
+  Holds the address of the current instruction being executed. After each instruction is fetched, the Program Counter is typically incremented to point to the next instruction. 
 - ### Instruction Memory:
+  Stores the instructions for the program being executed. It provides the instruction corresponding to the address specified by the Program Counter.
 - ### Immediate Gen:
+  Extracts and sign-extends the immediate value from specific instruction fields, making it compatible with the data size in the datapath.
 - ### Main Control Unit:
 - ### Data Memory:
 - ### Branch Control:
