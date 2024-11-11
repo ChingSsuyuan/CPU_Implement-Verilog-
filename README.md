@@ -21,4 +21,5 @@
 - ### Data Memory:
   Stores and provides data needed by instructions during execution, often organized by addresses for quick retrieval.
 - ### Branch Control:
+  Manages decisions in the instruction flow, handling branching (e.g., conditional jumps) to ensure correct instruction sequencing.
 - ### Register File:
