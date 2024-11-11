@@ -19,5 +19,6 @@
 - ### Main Control Unit:
   Coordinates the actions of the processor, interpreting instructions and directing components on how to respond.
 - ### Data Memory:
+  Stores and provides data needed by instructions during execution, often organized by addresses for quick retrieval.
 - ### Branch Control:
 - ### Register File:
