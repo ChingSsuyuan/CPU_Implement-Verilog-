@@ -17,6 +17,7 @@
 - ### Immediate Gen:
   Extracts and sign-extends the immediate value from specific instruction fields, making it compatible with the data size in the datapath.
 - ### Main Control Unit:
+  Coordinates the actions of the processor, interpreting instructions and directing components on how to respond.
 - ### Data Memory:
 - ### Branch Control:
 - ### Register File:
