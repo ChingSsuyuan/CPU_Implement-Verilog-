@@ -21,6 +21,6 @@
 - ### Data Memory:
   Stores and provides data needed by instructions during execution, often organized by addresses for quick retrieval.
 - ### Branch Control:
-  Manages decisions in the instruction flow, handling branching (e.g., conditional jumps) to ensure correct instruction sequencing.
+  Manages decisions in the instruction flow, handling branching to ensure correct instruction sequencing.
 - ### Register File:
   A small, fast storage area in the CPU that holds intermediate values, frequently used variables, and processor state information for quick access during computation.
