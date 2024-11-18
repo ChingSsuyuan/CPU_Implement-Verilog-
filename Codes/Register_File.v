@@ -16,6 +16,11 @@ module Register_File(Instruction32, WriteData, WriteEnable, ReadData1, ReadData2
     initial
     begin
         reg_file[0] = 32'b0; // initialize x0 as 0;
+        reg_file[1] = 3;
+        reg_file[2] = 2;
+
+
+        
     end
     integer i;                                  // Used below to rst all registers
 
@@ -44,3 +49,4 @@ module Register_File(Instruction32, WriteData, WriteEnable, ReadData1, ReadData2
         end
 
 endmodule
+
