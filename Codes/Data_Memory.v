@@ -20,44 +20,37 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module Data_Memory(
-	input [31:0] ALU_Result,       
-	input [31:0] WriteMemData,     
-	input MemWrite,                
-	input MemRead,                 
-	input clk,                     
-	output reg [31:0] ReadMemData  
+	input [31:0] ALU_Result,       // 地址
+	input [31:0] WriteMemData,     // 写入数据
+	input MemWrite,                // 写入使能
+	input MemRead,                 // 读取使能
+	output reg [31:0] ReadMemData  // 读取数据
 );
 
-	reg [3:0] mem_file [15:0];
+	// 32位宽的16个存储单元
+	reg [31:0] mem_file [15:0];
 	integer i;
-	initial begin
 
+	// 初始化存储为0
+	initial begin
 		for (i = 0; i < 16; i = i + 1) begin
-			mem_file[i] = 4'b0;
+			mem_file[i] = 32'b0;
 		end
 	end
 
-
-	always @(posedge clk) begin
-
+	// 写操作
+	always @(*) begin
 		if (MemWrite) begin
-			mem_file[ALU_Result[3:0]]     <= WriteMemData[3:0];   
-			mem_file[ALU_Result[3:0] + 1] <= WriteMemData[7:4];   
-			mem_file[ALU_Result[3:0] + 2] <= WriteMemData[11:8];   
-			mem_file[ALU_Result[3:0] + 3] <= WriteMemData[15:12];  
-			mem_file[ALU_Result[3:0] + 4] <= WriteMemData[19:16];  
-			mem_file[ALU_Result[3:0] + 5] <= WriteMemData[23:20];
-			mem_file[ALU_Result[3:0] + 6] <= WriteMemData[27:24];  
-			mem_file[ALU_Result[3:0] + 7] <= WriteMemData[31:28];  
+			mem_file[ALU_Result[3:0]] = WriteMemData;
 		end
+	end
 
+	// 读操作
+	always @(*) begin
 		if (MemRead) begin
-
-			ReadMemData <= {mem_file[ALU_Result[3:0] + 7], mem_file[ALU_Result[3:0] + 6],
-			                mem_file[ALU_Result[3:0] + 5], mem_file[ALU_Result[3:0] + 4],
-			                mem_file[ALU_Result[3:0] + 3], mem_file[ALU_Result[3:0] + 2],
-			                mem_file[ALU_Result[3:0] + 1], mem_file[ALU_Result[3:0]]};
+			ReadMemData = mem_file[ALU_Result[3:0]];
+		end else begin
+			ReadMemData = 32'b0;
 		end
 	end
 endmodule
-
